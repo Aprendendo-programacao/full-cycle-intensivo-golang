@@ -8,20 +8,33 @@
 
 * Descompactar: `$ sudo cd ~/Downloads && tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz`
 
-* Abrir o arquivo `.profile` no VS Code: `$ code ~/.profile`
+* Editar o `~/.profile`
 
-* Adicionar no final do arquivo:
+```
+# Golang environment variables
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
+```
+
+* Aplicar as alterações com: `$ source ~/.profile`
+
+* Editar o `~/.zshrc` (**APENAS PARA USUÁRIOS DO ZSH**)
     
-    ```
-    # Golang
-    export GOROOT=/usr/local/go
-    export GOPATH=$HOME/go
-    export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-    ```
-  
-* Aplicar as alterações: `$ source ~/.profile`
+```
+# Golang environment variables
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
 
-* Adicionar `export PATH=$PATH:/usr/local/go/bin` no ~/.zshrc
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
+```
+  
+* Reabrir o terminal para aplicar as alterações no ZSH
 
 ### Características
 
