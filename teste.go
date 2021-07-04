@@ -2,13 +2,17 @@ package main
 
 import "fmt"
 
+type CarName string
+type CarYear int
+
 func main() {
 
-	mapExample := make(map[string]int)
+	var carName CarName
+	carName = "Fusion"
+	fmt.Println(carName)
 
-	mapExample["wesley"] = 10
-	mapExample["mariana"] = 12
-
-	fmt.Println(mapExample["wesley"])
+	var carYear CarYear
+	carYear = 2020
+	fmt.Println(carYear)
 
 }
