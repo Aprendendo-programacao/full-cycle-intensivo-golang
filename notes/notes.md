@@ -345,7 +345,7 @@
         fmt.Println(mapExample["wesley"])
         ```
 
-* **Tipo customizado**
+* **type**
 
     * **Sintaxe**
 
@@ -369,6 +369,85 @@
             fmt.Println(carYear)
         }
         ```
+
+* **struct**
+
+    > **struct** são como "classes"
+
+    * **Sintaxe**
+
+        ```go
+        type <nome> struct {
+            // atributos
+        }
+        ```
+
+    * **Exemplo**
+
+        ```go
+        type Car struct {
+            CarName string
+            CarYear int
+        }
+
+        func main() {
+
+            car := Car{
+                CarName: "Fusion",
+                CarYear: 2020,
+            }
+            fmt.Println(car.CarYear)
+            fmt.Println(car.CarName)
+
+        }
+        ```
+
+    * **Função de uma struct**
+
+        * **Sintaxe**
+
+            ```go
+            func (<nome> <struct>) nome() {
+                // Corpo
+            }
+            ```
+
+        * **Exemplo**
+
+            ```go
+            func (car Car) drive() {
+                fmt.Println(car.CarName, "andou!")
+            }
+
+            func main() {
+
+                car := Car{
+                    CarName: "Fusion",
+                    CarYear: 2020,
+                }
+
+                car.drive() // Fusion andou!
+
+            }
+            ```
+
+            ```go
+            func (car *Car) changeCarName()  {
+                car.CarName = "Fusion2"
+                fmt.Println(car.CarName)
+            }
+
+            func main() {
+
+                car := Car{
+                    CarName: "Fusion",
+                    CarYear: 2020,
+                }
+
+                car.changeCarName() // Fusion2
+
+            }
+            ```
 
 ### Comandos
 

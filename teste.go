@@ -2,17 +2,29 @@ package main
 
 import "fmt"
 
-type CarName string
-type CarYear int
+type Car struct {
+	CarName string
+	CarYear int
+}
+
+func (car Car) drive() {
+	fmt.Println(car.CarName, "andou!")
+}
+
+func (car *Car) changeCarName()  {
+	fmt.Println(car.CarName)
+	car.CarName = "Fusion2"
+	fmt.Println(car.CarName)
+}
 
 func main() {
 
-	var carName CarName
-	carName = "Fusion"
-	fmt.Println(carName)
+	car := Car{
+		CarName: "Fusion",
+		CarYear: 2020,
+	}
 
-	var carYear CarYear
-	carYear = 2020
-	fmt.Println(carYear)
+	car.drive()
+	car.changeCarName()
 
 }
