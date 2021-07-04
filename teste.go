@@ -1,23 +1,13 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
-
-const xpto int = 1
-const nome string = "wes"
-
-const (
-	a string = "aaa"
-	b string = "bbb"
-	c string = "ccc"
-)
+import "fmt"
 
 func main() {
+	x := 10
+	result := getPointerValue(&x)
+	fmt.Println(result)
+}
 
-	response, _ := http.Get("https://www.google.com")
-
-	fmt.Println(response.Body)
-
+func getPointerValue(a *int) int {
+	return *a
 }

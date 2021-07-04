@@ -131,21 +131,20 @@
     bool | false
     int32 | `'w'`
 
-    * Exemplo
         
-        ```go
-        fmt.Printf("%T \n", 10) // int
-        fmt.Printf("%T \n", "Hello") // string
-        fmt.Printf("%T \n", 10.44) // float64
-        fmt.Printf("%T \n", false) // bool
-        fmt.Printf("%T \n", 'w') // int32
-        fmt.Printf(
-            "%T \n", 
-            `Wesley
-                lindo
-            `
-        ) // string
-        ```
+    ```go
+    fmt.Printf("%T \n", 10) // int
+    fmt.Printf("%T \n", "Hello") // string
+    fmt.Printf("%T \n", 10.44) // float64
+    fmt.Printf("%T \n", false) // bool
+    fmt.Printf("%T \n", 'w') // int32
+    fmt.Printf(
+        "%T \n", 
+        `Wesley
+            lindo
+        `
+    ) // string
+    ```
 
 * **Tratamento de erros**
 
@@ -172,6 +171,45 @@
     
     fmt.Println(result.Body)
     ```
+
+* **Obter a referência de uma variável no memória**
+
+    > `&` = endereçamento de memória (em hexadecimal)
+
+    ```go
+    x := 10
+	fmt.Println(&x)
+    ```
+
+* ****Ponteiro (`*`)**
+
+    * **Definição** = valor registrado no endereçamento de memória, ou seja, o valor de uma variável
+
+    * **Exemplos**
+
+        ```go
+        x := 10
+        y := &x
+
+        fmt.Println(*y)
+        ```
+
+        ```go
+        func main() {
+            x := 10
+            result := getPointerValue(&x)
+            fmt.Println(result)
+        }
+
+        func getPointerValue(a *int) int {
+            return *a
+        }
+        ```
+        * `a *int` (argumento da função) = endereçamento de memória no formato inteiro
+
+        * `int` (retorno) = inteiro
+
+        * `return *a` = retornar o valor dentro do ponteiro (`a *int`)
 
 ### Comandos
 
