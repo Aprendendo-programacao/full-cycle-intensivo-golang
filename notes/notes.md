@@ -205,11 +205,37 @@
             return *a
         }
         ```
-        * `a *int` (argumento da função) = endereçamento de memória no formato inteiro
+        * `a *int` (parâmetro da função) = endereçamento de memória no formato inteiro
 
         * `int` (retorno) = inteiro
 
         * `return *a` = retornar o valor dentro do ponteiro (`a *int`)
+
+* **Função**
+
+    * **Função com 2 ou mais tipos de retorno**
+
+        ```go
+        func nome(a string, b int) (string, int) {
+            return a, b
+        }
+        ```
+
+        ```go
+        func nome(a string, b int) (string, int, error) {
+            return a, b, nil
+        }
+        ```
+
+    * **Função anônima**
+
+        ```go
+        anonymousFunction := func() int {
+            return 1
+        }
+
+        fmt.Println(anonymousFunction())
+        ```
 
 ### Comandos
 
