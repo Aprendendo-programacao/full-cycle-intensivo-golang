@@ -4,22 +4,11 @@ import "fmt"
 
 func main() {
 
-	slice := make([]int, 5)
-	fmt.Println(slice)
+	mapExample := make(map[string]int)
 
-	slice[0] = 1
-	slice[1] = 1
-	slice[2] = 1
-	slice[3] = 1
-	slice[4] = 1
+	mapExample["wesley"] = 10
+	mapExample["mariana"] = 12
 
-	slice = append(slice, 1, 2, 3, 4)
-	fmt.Println(slice)
-
-	sliceString := []string {
-		"Hello",
-		"World",
-	}
-	fmt.Println(sliceString[0])
+	fmt.Println(mapExample["wesley"])
 
 }

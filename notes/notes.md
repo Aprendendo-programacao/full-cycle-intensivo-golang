@@ -326,6 +326,25 @@
         fmt.Println(sliceString[0])
         ```
 
+* **Map ("chave-valor")**
+
+    * **Sintaxe**
+
+        ```go
+        make(map[<tipo chave>]<tipo valor>)
+        ```
+
+    * **Exemplo**
+
+        ```go
+        mapExample := make(map[string]int)
+
+        mapExample["wesley"] = 10
+        mapExample["mariana"] = 12
+
+        fmt.Println(mapExample["wesley"])
+        ```
+
 ### Comandos
 
 * **Executar um arquivo `.go`**
