@@ -449,6 +449,110 @@
             }
             ```
 
+    * **Converter uma `struct` em JSON**
+
+        * **Sintaxe**
+
+            ```go
+            json.Marshal(<struct>)
+            ``` 
+            
+            > A função `Marshal()` transforma `struct` em slice de byte (`[]byte`)
+
+        * **Exemplo**
+
+            ```go
+            type Car struct {
+                CarName string
+                CarYear int
+            }
+
+            func main() {
+                result, _ := json.Marshal(car)
+                fmt.Println(string(result)) // {"CarName":"Fusion","CarYear":2020}
+            }
+            ```
+
+    * **Converter um JSON em `struct`**
+
+        * **Sintaxe**
+
+            ```go
+            json.Unmarshal(<slice de byte>)
+            ``` 
+
+        * **Exemplo**
+
+            ```go
+            type Car struct {
+                CarName string
+                CarYear int
+            }
+
+            func main() {
+            carJson := []byte(`{"car": "BMW", "year": 2020}`)
+            
+            var car Car
+            json.Unmarshal(carJson, &car)
+            fmt.Println(car) // {BMW 2020}
+            }
+            ```
+
+    * **Adicionar tags aos atributos de uma `struct`**
+
+        * **Sintaxe**
+
+            ```go
+            type Car struct {
+                CarName string `json:"<nome do campo>"`
+                CarYear int    `json:"<nome do campo>"`
+            }
+            ```
+
+            > **OBS**: colocar um `-` no "nome do campo" para que esse campo seja ignorado na conversão para JSON.
+
+        * **Exemplo**
+
+            ```go
+            type Car struct {
+                CarName string `json:"car"`
+                CarYear int    `json:"year"`
+            }
+
+
+            func main() {
+
+                car := Car{
+                    CarName: "Fusion",
+                    CarYear: 2020,
+                }
+
+                result, _ := json.Marshal(car)
+                fmt.Println(string(result)) // {"car":"Fusion","year":2020}
+
+            }
+            ```
+
+            ```go
+            type Car struct {
+                CarName string `json:"car"`
+                CarYear int    `json:"-"`
+            }
+
+
+            func main() {
+
+                car := Car{
+                    CarName: "Fusion",
+                    CarYear: 2020,
+                }
+
+                result, _ := json.Marshal(car)
+                fmt.Println(string(result)) // {"car":"Fusion"}
+
+            }
+            ```
+
 ### Comandos
 
 * **Executar um arquivo `.go`**
