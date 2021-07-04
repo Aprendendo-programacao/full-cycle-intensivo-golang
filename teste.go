@@ -1,32 +1,30 @@
 package main
 
 import (
-	"html/template"
-	"net/http"
+	"fmt"
+	"time"
 )
-
-type Task struct {
-	Name string
-	Done bool
-}
 
 func main() {
 
-	http.HandleFunc("/", Hello)
-	http.HandleFunc("/tasks", TaskHandler)
-	http.ListenAndServe(":8080", nil)
-}
+	channel := make(chan int)
 
-func Hello(w http.ResponseWriter, r *http.Request)  {
-	w.Write([]byte("Olá Mundo"))
-}
+	go func() {
+		for i := 0; i <= 5; i++ {
+			go worker(channel)
+		}
+	}()
 
-func TaskHandler(w http.ResponseWriter, r *http.Request)  {
-	task := Task{
-		Name: "Aprender Go",
-		Done: true,
+	// o "channel" ficará ocupado (não receberá um novo valor) até que um dos 5 workers sejam liberados
+	for i := 0; i <= 100; i++ {
+		channel <- i
 	}
 
-	t := template.Must(template.ParseFiles("task.html"))
-	t.Execute(w, task)
+}
+
+func worker(channel chan int) {
+	for i := range channel {
+		fmt.Println(i)
+		time.Sleep(time.Second * 3)
+	}
 }
