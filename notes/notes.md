@@ -598,6 +598,15 @@
         }
         ```
 
+* **Visibilidade**
+
+    * **Função/`struct`/atributo pública** = nome começa com letra maiúscula
+
+    * **Função/`struct`/atributo privada** = nome começa com letra minúscula
+
+    > **IMPORTANTE**: não existe o modificador de acesso `protected`
+
+
 ### Comandos
 
 * **Executar um arquivo `.go`**

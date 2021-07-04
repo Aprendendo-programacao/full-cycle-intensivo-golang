@@ -33,7 +33,6 @@ func main() {
 	}
 
 	car.drive()
-
 	acceptOnlyVehicleImplementation(car)
 
 }
