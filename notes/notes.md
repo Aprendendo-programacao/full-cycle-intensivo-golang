@@ -237,7 +237,7 @@
         fmt.Println(anonymousFunction())
         ```
 
-* **Array (tamanho fixo)**
+* **Array (array com tamanho fixo)**
 
     * **Sintaxe**
 
@@ -281,6 +281,50 @@
             y := [5]int{1, 2, 3, 4, 5}
             fmt.Println(y[1]) // 2
             ```
+
+* **Slices (array com tamanho variável)**
+
+    * **Sintaxe**
+
+        ```go
+        make([]<tipo>)
+        ```
+
+        **OU**
+
+        ```go
+        []<tipo>
+        ```
+
+
+    * **Exemplo**
+
+        ```go
+        slice := make([]int)
+        slice[0] = 1
+        ```
+
+        ```go
+        slice := make([]int, 5)
+        fmt.Println(slice)
+
+        slice[0] = 1
+        slice[1] = 1
+        slice[2] = 1
+        slice[3] = 1
+        slice[4] = 1
+
+        slice = append(slice, 1, 2, 3, 4) // Cópia do array anterior com os novos elementos
+        fmt.Println(slice)
+        ```
+
+        ```go
+        sliceString := []string {
+            "Hello",
+            "World",
+        }
+        fmt.Println(sliceString[0])
+        ```
 
 ### Comandos
 

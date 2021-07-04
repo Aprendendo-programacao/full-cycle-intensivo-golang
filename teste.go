@@ -4,13 +4,22 @@ import "fmt"
 
 func main() {
 
-	var x [5]int
-	x[0] = 1
-	x[1] = 2
-	x[2] = 3
-	fmt.Println(x)
+	slice := make([]int, 5)
+	fmt.Println(slice)
 
-	y := [5]int{1, 2, 3, 4, 5}
-	fmt.Println(y[1])
+	slice[0] = 1
+	slice[1] = 1
+	slice[2] = 1
+	slice[3] = 1
+	slice[4] = 1
+
+	slice = append(slice, 1, 2, 3, 4)
+	fmt.Println(slice)
+
+	sliceString := []string {
+		"Hello",
+		"World",
+	}
+	fmt.Println(sliceString[0])
 
 }
