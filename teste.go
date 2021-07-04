@@ -1,34 +1,39 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 )
+
+type vehicle interface {
+	start() string
+}
 
 type Car struct {
 	CarName string `json:"car"`
 	CarYear int    `json:"year"`
 }
 
+func (car Car) start() string {
+	return "Iniciou"
+}
+
 func (car Car) drive() {
 	fmt.Println(car.CarName, "andou!")
 }
 
+func acceptOnlyVehicleImplementation(car vehicle) {
+	fmt.Println("É um veículo")
+}
+
 func main() {
 
-	carJson := []byte(`{"car": "BMW", "year": 2020}`)
-	var car1 Car
-	json.Unmarshal(carJson, &car1)
-	fmt.Println(car1)
-
-	car2 := Car{
+	car := Car{
 		CarName: "Fusion",
 		CarYear: 2020,
 	}
 
-	car2.drive()
+	car.drive()
 
-	result, _ := json.Marshal(car2)
-	fmt.Println(string(result))
+	acceptOnlyVehicleImplementation(car)
 
 }

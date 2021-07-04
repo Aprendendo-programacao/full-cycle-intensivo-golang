@@ -181,7 +181,7 @@
 	fmt.Println(&x)
     ```
 
-* ****Ponteiro (`*`)**
+* **Ponteiro (`*`)**
 
     * **Definição** = valor registrado no endereçamento de memória, ou seja, o valor de uma variável
 
@@ -491,7 +491,7 @@
 
             func main() {
             carJson := []byte(`{"car": "BMW", "year": 2020}`)
-            
+
             var car Car
             json.Unmarshal(carJson, &car)
             fmt.Println(car) // {BMW 2020}
@@ -552,6 +552,51 @@
 
             }
             ```
+
+* **Interfaces**
+
+    * **Sintaxe**
+
+        ```go
+        type <nome> interface {
+            // funções
+            <nome>(<parâmetros>) <retorno>
+        }
+        ```
+
+    * **Exemplo**
+
+        ```go
+        type vehicle interface {
+            start() string
+        }
+        ```
+
+        * **Implementação de uma `interface` vehicle**
+
+            ```go
+            // Como struct Car implementou a função start(), logo Car é um vehicle
+            func (car Car) start() string {
+                return "Iniciou"
+            }
+            ```
+
+        ```go
+        func acceptOnlyVehicleImplementation(car vehicle) {
+            fmt.Println("É um veículo")
+        }
+
+        func main() {
+
+            car := Car{
+                CarName: "Fusion",
+                CarYear: 2020,
+            }
+
+            acceptOnlyVehicleImplementation(car) // É um veículo
+
+        }
+        ```
 
 ### Comandos
 
