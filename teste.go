@@ -1,31 +1,16 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	a, b, err := nome("wesley", 10)
 
-	if err != nil {
-		panic(err.Error())
-	}
+	var x [5]int
+	x[0] = 1
+	x[1] = 2
+	x[2] = 3
+	fmt.Println(x)
 
-	fmt.Println(a, b)
+	y := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(y[1])
 
-	anonymousFunction := func() int {
-		return 1
-	}
-
-	fmt.Println(anonymousFunction())
-}
-
-func nome(a string, b int) (string, int, error) {
-
-	if b > 10 {
-		return "", 0, errors.New("b precisa ser menor ou igual a 10")
-	}
-
-	return a, b, nil
 }

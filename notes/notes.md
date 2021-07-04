@@ -237,6 +237,51 @@
         fmt.Println(anonymousFunction())
         ```
 
+* **Array (tamanho fixo)**
+
+    * **Sintaxe**
+
+        ```go
+        var <nome> [<tamanho>]<tipo>
+        ```
+
+        ```go
+        <nome> := [<tamanho>]<tipo>{valores}
+        ```
+
+    * **Exemplo**
+
+        ```go
+        var x [5]int
+        x[0] = 1
+        x[1] = 2
+        x[2] = 3
+
+        fmt.Println(x) // [1 2 3 0 0]
+        ```
+
+        **OU**
+
+        ```go
+        y := [5]int{1, 2, 3}
+	    fmt.Println(y) // [1 2 3 0 0]
+        ```
+
+    * **Obter um valor através do index**
+
+        * **Sintaxe**
+
+            ```go
+            <nome>[<index>]
+            ```
+
+        * **Exemplo**
+
+            ```go
+            y := [5]int{1, 2, 3, 4, 5}
+            fmt.Println(y[1]) // 2
+            ```
+
 ### Comandos
 
 * **Executar um arquivo `.go`**
